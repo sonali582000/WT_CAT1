@@ -1,0 +1,154 @@
+<html>
+<body>
+<div class="navbar2">
+<a target="_self" href="WT_Lab3.html">
+<img src="g2.jpg" alt="Northern Lights" width="65" height="62.5"></a>
+</div>
+
+<div class="navbar">
+<a href="cat1/log.html">LOGIN</a>
+  <a href="#access" onClick="getLocation()">ACCESS</a>
+  <a href="cat1/places.html">PLACES</a></div>
+
+
+<div class="slideshow-container">
+  <div class="mySlides fade">
+    <img src="cat1/taj1.jpg" style="width:100%; height:80%;">  </div>
+
+  <div class="mySlides fade">
+    <img src="cat1/guru1.jpg" style="width:100%; height:80%;">  </div>
+
+  <div class="mySlides fade">
+    <img src="cat1/water1.jpg" style="width:100%; height:80%;">  </div>
+</div>
+</body>
+<p id="demo"></p>
+<br>
+<br><br><br>
+<br><br><br>
+<br><br><br>
+<center><img src="cat1/map.jpg" alt="Workplace" usemap="#workmap"></center>
+<map name="workmap">
+  <area alt="Gujarat" title="Gujarat" href="https://www.gujarattourism.com/about-gujarat.html" coords="77,280,17,289,49,387,137,336,114,292,121,315,125,349,95,262" shape="poly">
+
+<area alt="Maharastra" title="Maharastra" href="https://www.britannica.com/place/Maharashtra" coords="138,492,214,442,158,348,105,364,113,445" shape="poly">
+</map>
+<br>
+<center><a href="cat1/list.html">ABOUT INDIA</a></center>
+<style>
+
+.navbar2{
+  top: 1.1%;
+position:fixed;
+}
+
+.navbar {
+  background-color: #000033;
+  position: fixed; 
+  top: 1.1%;
+  width: 94.8%;
+  left:4.7%; 
+  font-size:20px;
+  font-family:"Times New Roman", Times, serif;
+  font-weight: bold;
+}
+
+.navbar a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  position:relative;
+  left:70%;
+  color:#FFCC00;
+  text-align: center;
+  padding: 20px 30px;
+  text-decoration: none;
+}
+
+.navbar a:hover {
+  color:#33CCFF;
+}
+* {box-sizing:border-box}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  top:10%;
+  margin: auto;
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+@-webkit-keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+  
+</style>
+<script>
+var slideIndex = 0;
+showSlides();
+
+function showSlides() {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1}
+  slides[slideIndex-1].style.display = "block";
+  setTimeout(showSlides, 2000); // Change image every 2 seconds
+} 
+
+var x = document.getElementById("demo");
+
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition, showError);
+  } else { 
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+
+function showPosition(position) {
+  x.innerHTML = "Latitude: " + position.coords.latitude + 
+  "<br>Longitude: " + position.coords.longitude;
+}
+
+function showError(error) {
+  switch(error.code) {
+    case error.PERMISSION_DENIED:
+      x.innerHTML = "User denied the request for Geolocation."
+      break;
+    case error.POSITION_UNAVAILABLE:
+      x.innerHTML = "Location information is unavailable."
+      break;
+    case error.TIMEOUT:
+      x.innerHTML = "The request to get user location timed out."
+      break;
+    case error.UNKNOWN_ERROR:
+      x.innerHTML = "An unknown error occurred."
+      break;
+  }
+}
+
+</script>
+
+
+</html>
